@@ -1,5 +1,5 @@
 <h1 class="h1">Prestamo</h1>
-<form [formGroup]="PrestamoForm" (ngSubmit)="AgregarPrestamo()" class="row">
+<!-- <form [formGroup]="PrestamoForm" (ngSubmit)="AgregarPrestamo()" class="row">
     <div class="col-sm-3"></div>
     <div id="AgregarPrestamoForm" class="form-group col-sm-6">
         <label for="rut">
@@ -10,10 +10,10 @@
             Producto:
         </label>
         <select name="producto" id="producto" class="form-control" formControlName="producto">
-            <!--
+            
                 Se utiliza una directiva de angular (ngFor) para cargar los productos en un 
                 select y de esta manera para que el usuario los pueda ingresar
-            -->
+            
             <option *ngFor="let producto of Productos" value={{producto.id}}>
                 {{producto.nombre}}
             </option>
@@ -21,5 +21,73 @@
         <br/>
         <input type="submit" class="btn btn-warning" value="Guardar">
     </div>
+    <div class="col-sm-3"></div>
+</form> -->
+
+<form [formGroup]="PrestamoForm" (ngSubmit)="AgregarPrestamo()" class="row">
+    <div class="col-sm-3"></div>
+        <div id="AgregarPrestamoForm" class="form-group col-sm-6">
+            <label for="rut">Rut:</label>
+            <input type="text" id="rut" class="form-control" required formControlName="rut">
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" class="form-control" required formControlName="nombre">
+
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" class="form-control" required formControlName="apellido">
+
+            <label for="correo">Correo</label>
+            <input type="text" id="correo" class="form-control" required formControlName="correo">
+            <br>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar product-table">
+                <h2 class="ingresar-prestamo-h2">Productos en stock</h2>
+                <table class="table table-bordered table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad total</th>
+                            <th scope="col">Cantidad disponible</th>
+                            <th scope="col">Cantidad prestado</th>
+                            <th scope="col">Agregar al pedido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td *ngIf="Productos == 0" colspan="4">No hay productos en el inventario</td>
+                        <tr *ngFor="let Producto of Productos">
+                            <th scope="row">{{Producto.nombre}}</th>
+                            <td>{{Producto.total}}</td>
+                            <td>{{Producto.disponible}}</td>
+                            <td>{{Producto.prestado}}</td>
+                            <td><i class="fas fa-plus-circle" (click)="PedirProducto()"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar product-table">
+                <h2 class="ingresar-prestamo-h2">Productos del pedido</h2>
+                <table class="table table-bordered table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad disponible</th>
+                            <th scope="col">Cantidad a pedir</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td *ngIf="ProductosPrestamos == 0" colspan="4">No hay productos agregados al pedido</td>
+                        <tr *ngFor="let ProductoPrestado of ProductosPrestamos">
+                            <th scope="row">{{ProductoPrestado.nombre}}</th>
+                            <td>{{ProductoPrestado.disponible}}</td>
+                            <td><input type="number" value="0"></td>
+                            <td><i class="fas fa-trash" (click)="EliminarProductoPedido()"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <input type="submit" class="btn btn-warning" value="Guardar">
+        </div>
     <div class="col-sm-3"></div>
 </form>

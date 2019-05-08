@@ -9,17 +9,19 @@ import { IngresarDevolucionComponent } from './ingresar-devolucion/ingresar-devo
 import { LoginComponent } from './login/login.component';
 import { VerPrestamoComponent} from './ver-prestamo/ver-prestamo.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { RetiroProductosComponent } from './retiro-productos/retiro-productos.component';
 
 const routes: Routes = [
-  {path: 'AgregarProducto', component:AgregarProductoComponent},
-  {path: 'VerProducto', component:VerProductoComponent},
-  {path: 'IngresarStock', component:IngresarStockComponent},
-  {path: 'SacarStock', component:SacarStockComponent},
-  {path: 'IngresarPrestamo', component:IngresarPrestamoComponent},
-  {path: 'IngresarDevolucion', component:IngresarDevolucionComponent},
-  {path: 'Login', component:LoginComponent},
-  {path: 'VerPrestamo', component:VerPrestamoComponent},
-  {path: 'PerfilUsuario', component:PerfilUsuarioComponent},
+  {path: 'AgregarProducto', component: AgregarProductoComponent},
+  {path: 'VerProducto', component: VerProductoComponent},
+  {path: 'IngresarStock', component: IngresarStockComponent},
+  {path: 'SacarStock', component: SacarStockComponent},
+  {path: 'IngresarPrestamo', component: IngresarPrestamoComponent},
+  {path: 'IngresarDevolucion', component: IngresarDevolucionComponent},
+  {path: 'Login', component: LoginComponent},
+  {path: 'VerPrestamo', component: VerPrestamoComponent},
+  {path: 'PerfilUsuario', component: PerfilUsuarioComponent},
+  {path: '', component: RetiroProductosComponent}
 ];
 
 @NgModule({

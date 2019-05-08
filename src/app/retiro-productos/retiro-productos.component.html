@@ -1,0 +1,27 @@
+<h1 class="h1">¿Dónde retirar los productos?</h1>
+<table class="table table-hover">
+  <thead class="thead-light">
+    <tr class="table-light">
+      <th scope="col">
+        Nombre Producto
+      </th>
+      <th scope="col">
+        Lugar de retiro
+      </th>
+    </tr>
+  </thead>
+  <tbody >
+    <!--
+      Se utiliza la directiva ngFor para recorrer la lista de productos que llegan 
+      desde la base de datos
+    -->
+    <tr *ngFor="let Producto of Productos" class="table-light">
+      <th scope="row">
+        {{Producto.nombre}}
+      </th>
+      <td>
+        {{Producto.lugarRetiro}}
+      </td>
+    </tr>
+  </tbody>
+</table>

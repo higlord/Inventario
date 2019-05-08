@@ -7,14 +7,20 @@ import { element } from '@angular/core/src/render3';
   providedIn: 'root'
 })
 export class DataManagerService {
-  Productos = [{id:1, nombre:'Balon Futbol', total:10, disponible:7, prestado:3},
-              {id:2, nombre:'Balon Basketbol', total:8, disponible:7, prestado:1},
-              {id:3, nombre:'Raqueta Ping-Pong', total:20, disponible:12, prestado:8}];
+  Productos = [
+                {id:1, nombre:'Balon Futbol', total:10, disponible:7, prestado:3, lugarRetiro: 'Pañol'},
+                {id:2, nombre:'Balon Basketbol', total:8, disponible:7, prestado:1, lugarRetiro: 'Pañol'},
+                {id:3, nombre:'Raqueta Ping-Pong', total:20, disponible:12, prestado:8, lugarRetiro: 'Pañol'}
+              ];
   Prestamos = [];
+  Alumnos = [
+              {rut: '19845227-0', nombre: 'Ignacio', apellido: 'Donoso', }
+            ];
   tempProducto = {};
 
   constructor() { }
 
+  ///Productos
   ObtenerProductos()
   {
     return this.Productos;
@@ -28,7 +34,8 @@ export class DataManagerService {
       nombre: producto.nombre,
       total: producto.total,
       disponible: producto.total,
-      prestado: 0
+      prestado: 0,
+      lugarRetiro: ''
       }
     this.Productos.push(tempProd);
   }
@@ -36,9 +43,9 @@ export class DataManagerService {
   ObtenerProducto(id)
   {
     return this.Productos.filter( p => 
-      {
-        return p.id == id;
-      })
+    {
+      return p.id == id;
+    });
   }
 
   EditarProducto(producto)
@@ -89,7 +96,9 @@ export class DataManagerService {
     let index = this.Productos.indexOf(temp[0]);
     this.Productos.splice(index, 1);
   }
+  ///Fin productos
 
+  ///Prestamos
   AgregarPrestamo (Prestamo)
   {
     this.Prestamos.push(Prestamo);
@@ -105,4 +114,18 @@ export class DataManagerService {
     this.tempProducto = producto;
     console.log(this.tempProducto);
   }
+  ///Fin prestamos
+
+  ///Alumnos
+  AgregarAlumno (Alumno) {
+    this.Alumnos.push(Alumno);
+  }
+
+  ObtenerAlumno (rut) {
+    return this.Alumnos.filter( p => 
+    {
+      return p.rut == rut;
+    });
+  }
+  ///Fin alumnos
 }

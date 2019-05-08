@@ -11,13 +11,16 @@ export class IngresarPrestamoComponent implements OnInit {
 
   
   Productos = [];
+  ProductosPrestamos = [{id:1, nombre:'Balon Futbol', total:10, disponible:7, prestado:3, lugarRetiro: 'Pañol'}];
   PrestamoForm: FormGroup;
   constructor(private data : DataManagerService, private formBuilder: FormBuilder) 
   {
     this.PrestamoForm = this.formBuilder.group(
       {
         rut: [''],
-        producto: ['']
+        nombre: [''],
+        apellido: [''],
+        correo: ['']
       }
     );
   }
@@ -31,8 +34,16 @@ export class IngresarPrestamoComponent implements OnInit {
     this.Productos = this.data.ObtenerProductos();
   }
 
-  AgregarPrestamo()
-  {
+  PedirProducto() {
+    console.log('Agrega el producto al pedido');
+  }
+
+  EliminarProductoPedido() {
+    this.ProductosPrestamos = [];
+    console.log('Eliminar producto de la lista de pedidos');
+  }
+
+  AgregarPrestamo() {
     this.data.AgregarPrestamo(
     {
       id: 1,

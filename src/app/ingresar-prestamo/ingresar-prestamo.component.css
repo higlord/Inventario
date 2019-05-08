@@ -3,3 +3,12 @@
     color: #0F264A;
     padding: 20px;
 }
+
+.ingresar-prestamo-h2 {
+    text-align: center;
+}
+
+.product-table {
+    border: solid 1px black;    
+    padding: 10px;
+}
