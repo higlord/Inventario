@@ -14,7 +14,7 @@ export class DataManagerService {
               ];
   Prestamos = [];
   Alumnos = [
-              {rut: '19845227-0', nombre: 'Ignacio', apellido: 'Donoso', }
+              {rut: '19845227-0', nombre: 'Ignacio', apellido: 'Donoso', correo: 'naxonicolas1997@gmail.com'}
             ];
   tempProducto = {};
 

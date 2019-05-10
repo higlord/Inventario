@@ -12,3 +12,40 @@
     border: solid 1px black;    
     padding: 10px;
 }
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+.cantidad-producto {
+    display: table;
+}
+
+.cantidad-producto i {
+    width: 15%;
+    font-size: 18px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0px 5px 0px 5px;
+    border-radius: 5px;
+}
+
+.cantidad-producto i:hover {
+    color: white;
+    background-color: black;
+}
+
+.cantidad-producto i:active {
+    font-size: 10px;
+}
+
+.cantidad-producto input {
+    width: 80%;
+    margin: 0px 5px 0px 5px;
+}
