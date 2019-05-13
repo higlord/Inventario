@@ -1,0 +1,66 @@
+<form [formGroup]="RegistroForm" (ngSubmit)="Registrar()">
+  <div class="container register registro">
+    <div class="row">
+      <div class="col-md-3 register-left">
+        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="Cohete de bienvenida"/>
+        <h3>
+          Bienvenido
+        </h3>
+      </div>
+      <div class="col-md-9 register-right">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <h3 class="register-heading">
+              Crear usuario
+            </h3>
+            <div class="row register-form">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Rut *" formControlName="rut"/>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Nombre *" formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Apellido *" formControlName="apellido"/>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control"  placeholder="Correo *" formControlName="correo"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control"  placeholder="Dirección *" formControlName="direccion"/>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Nombre usuario *" formControlName="nombreUsuario"/>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Contraseña *" formControlName="contrasegna"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" 
+                    placeholder="Telefono *" formControlName="telefono"/>
+                </div>
+                <div class="form-group">
+                  <select class="form-control" formControlName="carrera">
+                    <option class="hidden"  selected disabled>
+                      Carrera*
+                    </option>
+                    <option>
+                      Ingenieria en informatica
+                    </option>
+                    <option>
+                      Ingenieria en gestion de recursos humanos
+                    </option>
+                  </select>
+                </div>
+                <input type="submit" class="btnRegister"  value="Registrar"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -4,83 +4,90 @@
     <span class="navbar-toggler-icon"></span>
     Menu
   </button>
-  <div class="collapse navbar-collapse" id="collapse_target">
+  <div class="collapse navbar-collapse" id="collapse_target" *ngIf="usuario != undefined && usuario != null">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
+        <!--
+          Boton que despliega un sub-menu con las opciones disponibles sobre productos
+        -->
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Productos
+        </a>
+        <!--
+          routerLink Redirecciona a la pagina de ver productos,
+          donde se desplegaran la lista de todos los productos
+        -->
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/VerProducto">
+            Ver Productos
+          </a>
+          <a class="dropdown-item" routerLink="/AgregarProducto">
+            Ingresar producto
+          </a>
+          <a class="dropdown-item" routerLink="/IngresarStock">
+            Ingresar stock
+          </a>
+          <a class="dropdown-item" routerLink="/SacarStock">
+            Sacar stock
+          </a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <!--
+          Boton que despliega un sub-menu con las opciones disponibles sobre los prestamos
+        -->
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Movimientos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <!--
-            Boton que despliega un sub-menu con las opciones disponibles sobre productos
+            RouterLink que redirecciona a la pagina para ingresar un prestamo de producto
           -->
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Productos
+          <a class="dropdown-item" routerLink="/IngresarPrestamo">
+            Ingresar Prestamo
           </a>
           <!--
-            routerLink Redirecciona a la pagina de ver productos,
-            donde se desplegaran la lista de todos los productos
+            RouterLink que redirecciona a la pagina para ingresar una devolucion de producto
           -->
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/VerProducto">
-              Ver Productos
-            </a>
-            <a class="dropdown-item" routerLink="/AgregarProducto">
-              Ingresar producto
-            </a>
-            <a class="dropdown-item" routerLink="/IngresarStock">
-              Ingresar stock
-            </a>
-            <a class="dropdown-item" routerLink="/SacarStock">
-              Sacar stock
-            </a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <!--
-            Boton que despliega un sub-menu con las opciones disponibles sobre los prestamos
-          -->
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Movimientos
+          <a class="dropdown-item" routerLink="/IngresarDevolucion">
+            Ingresar Devolucion
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <!--
-              RouterLink que redirecciona a la pagina para ingresar un prestamo de producto
-            -->
-            <a class="dropdown-item" routerLink="/IngresarPrestamo">
-              Ingresar Prestamo
-            </a>
-            <!--
-              RouterLink que redirecciona a la pagina para ingresar una devolucion de producto
-            -->
-            <a class="dropdown-item" routerLink="/IngresarDevolucion">
-              Ingresar Devolucion
-            </a>
-            <!--
-              RouterLink que redirecciona a la pagina para ver la lista de prestamos
-            -->
-            <a class="dropdown-item" routerLink="/VerPrestamo">
-              Ver prestamos
-            </a>
-          </div>
-        </li>
-     </ul>
+          <!--
+            RouterLink que redirecciona a la pagina para ver la lista de prestamos
+          -->
+          <a class="dropdown-item" routerLink="/VerPrestamo">
+            Ver prestamos
+          </a>
+        </div>
+      </li>
+    </ul>
   </div>
   <!--Se utiliza la directiva ngIf para saber si el usuario esta logeado o no-->
   <!--NombreUsuario: Variable que posee el nombre del usuario, si esta es undefined significa que el usuario no esta logeado-->
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="collapse_target" 
-    *ngIf="NombreUsuario==undefined; else elseBlock">
+    *ngIf="usuario == undefined || usuario == null; else elseBlock">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/Login">
           Iniciar sesion
         </a>
       </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/Registro">
+            Resgistrarse
+          </a>
+        </li>
     </ul>
   </div>
   <ng-template #elseBlock>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id='collapse_target'>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            Bienvenido {{NombreUsuario}}
+          <a routerLink="/PerfilUsuario">
+            Bienvenido {{usuario.username}}
+          </a>
         </li>
       </ul>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataManagerService } from '../data-manager.service'
 
 @Component({
   selector: 'app-nav',
@@ -9,13 +10,11 @@ export class NavComponent implements OnInit {
 
   ///Nombre del usuario que debe llegar desde la base de datos
   ///Cuando el usuario este logeado
-  NombreUsuario = undefined;
-  constructor() 
-  {
+  usuario : any;
+  constructor(private data : DataManagerService) {
   }
 
-  ngOnInit() 
-  {
+  ngOnInit() {
+    this.usuario = this.data.user;
   }
-
 }

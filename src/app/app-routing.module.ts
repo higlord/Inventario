@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { VerPrestamoComponent} from './ver-prestamo/ver-prestamo.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { RetiroProductosComponent } from './retiro-productos/retiro-productos.component';
+import { RegistroComponent} from './registro/registro.component';
 
 const routes: Routes = [
   {path: 'AgregarProducto', component: AgregarProductoComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'Login', component: LoginComponent},
   {path: 'VerPrestamo', component: VerPrestamoComponent},
   {path: 'PerfilUsuario', component: PerfilUsuarioComponent},
-  {path: '', component: RetiroProductosComponent}
+  {path: '', component: RetiroProductosComponent},
+  {path: 'Registro', component: RegistroComponent}
 ];
 
 @NgModule({

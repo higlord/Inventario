@@ -17,6 +17,16 @@ export class DataManagerService {
               {rut: '19845227-0', nombre: 'Ignacio', apellido: 'Donoso', correo: 'naxonicolas1997@gmail.com'}
             ];
   tempProducto = {};
+  
+  user = null;
+  // user = {
+  //   rut: "19845227-0",
+  //   nombre: "Ignacio",
+  //   apellido: "Donoso",
+  //   correo: "correo",
+  //   username: "iDonosof",
+  //   password: "asd123asd"
+  // };
 
   constructor() { }
 
