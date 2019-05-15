@@ -18,15 +18,15 @@ export class DataManagerService {
             ];
   tempProducto = {};
   
-  user = null;
-  // user = {
-  //   rut: "19845227-0",
-  //   nombre: "Ignacio",
-  //   apellido: "Donoso",
-  //   correo: "correo",
-  //   username: "iDonosof",
-  //   password: "asd123asd"
-  // };
+  //user = null;
+  user = {
+    rut: "19845227-0",
+    nombre: "Ignacio",
+    apellido: "Donoso",
+    correo: "correo",
+    username: "iDonosof",
+    password: "asd123asd"
+  };
 
   constructor() { }
 
